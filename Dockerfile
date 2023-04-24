@@ -1,3 +1,11 @@
-FROM nginx:latest
+FROm python:3.9-slim-buster
 
-Copy /TrifectaFest-FE /usr/share/nginx/html
+WORKDIR /app
+
+COPY Trifectafest-BE-Python /app
+
+RUN pip install --upgrade pip
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD [ "python", "app.py"]
